@@ -1,0 +1,38 @@
+
+
+{% extends 'accounts/accounts.html' %}
+{% comment %} {%load static%} {% endcomment %}
+{% block content %}
+
+
+{% if error %}
+{{ error }}
+
+<br/>
+<br/>
+{% endif %}
+
+<h1>Login!</h1>
+
+<form method = "POST" action="{% url 'login' %}">
+    {% csrf_token %}
+    username:
+    <br/>
+    <input type="text" name="username" />
+    <br/>
+    Password:
+    <br/>
+    <input type="password" name="password" />
+   
+    <br/>
+    <br/>
+    <input class ="btn btn-primary" type="submit" value= "Login" />
+    
+    <br/>
+     I have not account <a class =" "  type="button" href="/accounts/signup/">register</a>
+
+
+</form>
+
+
+{% endblock %}
